@@ -1,0 +1,242 @@
+/* Specimen: tokens and components for web pages.
+ * Light theme by default; add data-theme="dark" on <html> for the Ink theme.
+ * Pair with specimen.js for generated plates. Rules live in DESIGN.md. */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Hanken+Grotesk:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+
+:root {
+  --paper: #f9f8ef;
+  --bone: #ecebe2;
+  --oat: #e5e5d5;
+  --stone: #d4d3c8;
+  --sage: #a9bdaf;
+  --mint-pale: #e0f4db;
+  --ink: #1a1332;
+  --umber: #2f2922;
+  --moss: #1b1e12;
+  --violet: #6f4dca;
+  --lilac: #d1b0fb;
+  --mint: #a8fdba;
+  --forest: #165744;
+  --salmon: #e89d9b;
+  --surface: var(--paper);
+  --surface-alt: var(--bone);
+  --stage: var(--stone);
+  --text: var(--ink);
+  --text-muted: #575266;
+  --rule: #1a133238;
+  --accent: var(--violet);
+  --on-accent: var(--paper);
+  --accent-text: var(--violet);
+  --signal: var(--mint);
+  --on-signal: var(--ink);
+  --focus: var(--violet);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --radius-none: 0px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+  --line-hairline: 1px;
+  --line-strong: 1.5px;
+  --strip-width: 40px;
+  --font-display: Newsreader, "Iowan Old Style", Georgia, serif;
+  --font-text: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+:root[data-theme="dark"] {
+  --surface: var(--ink);
+  --surface-alt: #231a40;
+  --stage: #120d24;
+  --text: var(--paper);
+  --text-muted: #b7b2c6;
+  --rule: #f9f8ef38;
+  --accent-text: var(--lilac);
+  --focus: var(--mint);
+  color-scheme: dark;
+}
+
+body { margin: 0; background: var(--surface); color: var(--text); font-family: var(--font-text); font-size: 16px; line-height: 1.5; }
+
+.giant { font-family: var(--font-display); font-size: 320px; line-height: 0.78; font-weight: 360; letter-spacing: -0.02em; font-variation-settings: 'opsz' 72; }
+.display-xl { font-family: var(--font-display); font-size: 112px; line-height: 0.98; font-weight: 330; letter-spacing: -0.015em; font-variation-settings: 'opsz' 72; }
+.display-l { font-family: var(--font-display); font-size: 80px; line-height: 1.0; font-weight: 340; letter-spacing: -0.012em; font-variation-settings: 'opsz' 72; }
+.display-m { font-family: var(--font-display); font-size: 56px; line-height: 1.04; font-weight: 350; letter-spacing: -0.01em; font-variation-settings: 'opsz' 60; }
+.headline { font-family: var(--font-display); font-size: 36px; line-height: 1.1; font-weight: 370; letter-spacing: -0.005em; font-variation-settings: 'opsz' 36; }
+.title { font-family: var(--font-display); font-size: 26px; line-height: 1.18; font-weight: 400; font-variation-settings: 'opsz' 24; }
+.lead { font-family: var(--font-text); font-size: 20px; line-height: 1.45; font-weight: 400; }
+.body { font-family: var(--font-text); font-size: 16px; line-height: 1.5; font-weight: 400; }
+.body-s { font-family: var(--font-text); font-size: 14px; line-height: 1.45; font-weight: 400; }
+.label { font-family: var(--font-mono); font-size: 12px; line-height: 1.3; font-weight: 400; letter-spacing: 0.06em; }
+.data { font-family: var(--font-mono); font-size: 14px; line-height: 1.3; font-weight: 400; letter-spacing: 0.02em; }
+.micro { font-family: var(--font-mono); font-size: 10px; line-height: 1.25; font-weight: 400; letter-spacing: 0.04em; }
+
+/* Specimen components. Load after tokens.css. Every class is prefixed sp-.
+   Components read semantic tokens (--text, --surface, --rule ...), so a ground
+   class (.sp-on-ink, .sp-on-lilac ...) re-points them for everything inside. */
+
+.label { text-transform: uppercase; }
+.data { font-variant-numeric: tabular-nums; }
+
+/* ---- Grounds: a panel's pigment plus the text colours that read on it ---- */
+.sp-on-paper  { background: var(--paper);     --surface: var(--paper);     --text: var(--ink);   --text-muted: #575266; --rule: #1a133238; --accent-text: var(--violet); color: var(--text); }
+.sp-on-bone   { background: var(--bone);      --surface: var(--bone);      --text: var(--ink);   --text-muted: #575266; --rule: #1a133238; --accent-text: var(--violet); color: var(--text); }
+.sp-on-oat    { background: var(--oat);       --surface: var(--oat);       --text: var(--ink);   --text-muted: #4f4b5c; --rule: #1a133238; --accent-text: var(--violet); color: var(--text); }
+.sp-on-mint-pale { background: var(--mint-pale); --surface: var(--mint-pale); --text: var(--ink); --text-muted: #46524a; --rule: #1a133238; --accent-text: var(--violet); color: var(--text); }
+.sp-on-lilac  { background: var(--lilac);     --surface: var(--lilac);     --text: var(--ink);   --text-muted: #3b3252; --rule: #1a133240; --accent-text: var(--ink);    color: var(--text); }
+.sp-on-mint   { background: var(--mint);      --surface: var(--mint);      --text: var(--ink);   --text-muted: #2f4a3c; --rule: #1a133240; --accent-text: var(--forest); color: var(--text); }
+.sp-on-salmon { background: var(--salmon);    --surface: var(--salmon);    --text: var(--ink);   --text-muted: #3d2a35; --rule: #1a133240; --accent-text: var(--ink);    color: var(--text); }
+.sp-on-ink    { background: var(--ink);       --surface: var(--ink);       --text: var(--paper); --text-muted: #b7b2c6; --rule: #f9f8ef38; --accent-text: var(--lilac);  color: var(--text); }
+.sp-on-umber  { background: var(--umber);     --surface: var(--umber);     --text: var(--paper); --text-muted: #c9c2b6; --rule: #f9f8ef38; --accent-text: var(--lilac);  color: var(--text); }
+.sp-on-moss   { background: var(--moss);      --surface: var(--moss);      --text: var(--paper); --text-muted: #bcc0ad; --rule: #f9f8ef38; --accent-text: var(--mint);   color: var(--text); }
+.sp-on-forest { background: var(--forest);    --surface: var(--forest);    --text: var(--paper); --text-muted: #cfe8d6; --rule: #f9f8ef40; --accent-text: var(--mint);   color: var(--text); }
+.sp-on-violet { background: var(--violet);    --surface: var(--violet);    --text: var(--paper); --text-muted: #ece5fb; --rule: #f9f8ef50; --accent-text: var(--mint);   color: var(--text); }
+
+/* ---- Stage: the coloured ground panels float on ---- */
+.sp-stage {
+  background: var(--stage);
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-7);
+  padding-block: var(--space-9);
+  padding-left: max(var(--space-4), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--space-4), env(safe-area-inset-right, 0px));
+}
+
+/* ---- Tag ---- */
+.sp-tag {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-mono); font-size: 12px; line-height: 1; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 7px 4px; white-space: nowrap;
+  background: var(--text); color: var(--surface); border: var(--line-hairline) solid var(--text);
+}
+.sp-tag--outline { background: transparent; color: var(--text); }
+.sp-tag--signal  { background: var(--signal); color: var(--on-signal); border-color: var(--signal); }
+.sp-tag--accent  { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+/* ---- Value tag: a number pinned to a plate or a chart ---- */
+.sp-value {
+  display: inline-block; font-family: var(--font-mono); font-size: 13px; line-height: 1; letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums; padding: 4px 5px 3px; white-space: nowrap;
+  background: var(--lilac); color: var(--ink);
+}
+.sp-value--forest  { background: var(--forest); color: var(--paper); }
+.sp-value--violet  { background: var(--violet); color: var(--paper); }
+.sp-value--paper   { background: var(--paper);  color: var(--ink); }
+.sp-value--outline { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1px currentColor; }
+
+/* ---- Figure reference: circled number, leader line, boxed caption ---- */
+.sp-fig { display: inline-flex; align-items: center; color: var(--text); }
+.sp-fig__badge {
+  width: 44px; height: 44px; border-radius: var(--radius-round); border: var(--line-strong) solid currentColor;
+  display: grid; place-content: center; text-align: center;
+  font-family: var(--font-mono); font-size: 10px; line-height: 1.15; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.sp-fig__label {
+  display: inline-flex; align-items: center; position: relative; margin-left: 14px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 6px 8px 5px; border: var(--line-hairline) solid currentColor;
+}
+.sp-fig__label::before { content: ""; position: absolute; right: 100%; top: 50%; width: 14px; border-top: var(--line-hairline) solid currentColor; }
+
+/* ---- Index list: titled rows with a pill index and a leader line to the edge ---- */
+.sp-index-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-7); }
+.sp-index-list__item { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--space-5); align-items: start; }
+.sp-index-list__title { font-family: var(--font-display); font-size: 36px; line-height: 1.1; font-weight: 370; letter-spacing: -0.005em; margin: 0; text-wrap: balance; }
+.sp-index-list__desc { grid-column: 1; margin: var(--space-3) 0 0; font-size: 15px; line-height: 1.45; color: var(--text-muted); max-width: 46ch; }
+.sp-index {
+  grid-column: 2; grid-row: 1; align-self: start; margin-top: 8px;
+  display: inline-flex; align-items: center; position: relative;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+  padding: 4px 9px 3px; border: var(--line-hairline) solid currentColor; border-radius: var(--radius-pill);
+}
+.sp-index--lead { margin-right: 56px; }
+.sp-index--lead::after { content: ""; position: absolute; left: 100%; top: 50%; width: 56px; border-top: var(--line-hairline) solid currentColor; }
+
+/* ---- Meta header: two mono columns over a dashed rule ---- */
+.sp-meta {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-5);
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.5; letter-spacing: 0.06em; text-transform: uppercase;
+  padding-bottom: var(--space-4); border-bottom: var(--line-hairline) dashed var(--text-muted);
+}
+.sp-meta > :last-child { text-align: right; }
+.sp-meta--plain { border-bottom: 0; padding-bottom: 0; }
+
+/* ---- Rule list: hairline-separated values ---- */
+.sp-rules { list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.sp-rules li { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: var(--line-hairline) solid var(--rule); }
+.sp-rules li > :last-child:not(:first-child) { color: var(--text-muted); text-align: right; }
+
+/* ---- Button ---- */
+.sp-btn {
+  display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; text-decoration: none;
+  font-family: var(--font-mono); font-size: 12px; line-height: 1; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 9px 11px 8px; border: var(--line-hairline) solid var(--text); border-radius: var(--radius-none);
+  background: var(--text); color: var(--surface);
+  transition: background-color .15s ease, color .15s ease;
+}
+.sp-btn::after { content: ">>"; letter-spacing: -0.08em; }
+.sp-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.sp-btn--outline { background: transparent; color: var(--text); }
+.sp-btn--signal { background: var(--signal); border-color: var(--signal); color: var(--on-signal); }
+.sp-btn--signal:hover { background: var(--text); border-color: var(--text); color: var(--surface); }
+.sp-btn:focus-visible, .sp-nav__menu:focus-visible, .sp-nav a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ---- Navigation bar ---- */
+.sp-nav { background: var(--oat); --surface: var(--oat); --text: var(--ink); --text-muted: #4f4b5c; color: var(--ink);
+  display: grid; grid-template-columns: 1fr auto; align-items: center; row-gap: var(--space-3); column-gap: var(--space-5);
+  padding: var(--space-3) var(--space-4); }
+.sp-nav__mark { font-family: var(--font-display); font-size: 26px; line-height: 1.1; font-weight: 400; color: inherit; text-decoration: none; }
+.sp-nav__menu { width: 36px; height: 36px; display: grid; place-content: center; background: none; border: 0; color: inherit; cursor: pointer; padding: 0; }
+.sp-nav__menu svg { width: 24px; height: 24px; }
+.sp-nav__tagline { margin: 0; font-size: 15px; line-height: 1.3; color: var(--text-muted); }
+.sp-nav__links { display: none; gap: var(--space-5); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.sp-nav__links a { color: inherit; text-decoration: none; }
+.sp-nav__links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 900px) {
+  .sp-nav { grid-template-columns: auto 1fr auto auto; padding: var(--space-4) var(--space-6); }
+  .sp-nav__tagline { grid-column: 2; grid-row: 1; }
+  .sp-nav__links { display: flex; }
+  .sp-nav__menu { display: none; }
+}
+
+/* ---- Headlines: staggered lines and inline image chips ---- */
+.sp-headline { margin: 0; font-family: var(--font-display); font-weight: 340; line-height: 1.0; letter-spacing: -0.012em; text-wrap: balance; }
+.sp-stagger > span { display: block; }
+.sp-stagger > span:nth-child(2) { padding-left: 22%; }
+.sp-stagger > span:nth-child(3) { padding-left: 11%; }
+.sp-chip {
+  display: inline-block; width: 1.7em; height: 0.62em; vertical-align: 0.06em; margin: 0 0.08em;
+  background: var(--violet); overflow: hidden;
+}
+.sp-chip canvas { display: block; }
+
+/* ---- Inset panel: a plate with a paper card inset over it and an accent strip ---- */
+.sp-inset { position: relative; isolation: isolate; display: grid; min-width: 0; background: var(--ink);
+  padding: clamp(64px, 14%, 140px) 0 0 clamp(40px, 16%, 220px); }
+.sp-inset__plate { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.sp-inset__card { position: relative; min-width: 0; padding: clamp(24px, 4vw, 48px); display: flex; flex-direction: column; gap: var(--space-5); }
+.sp-inset__card::before { content: ""; position: absolute; top: var(--space-6); bottom: 0; right: 100%; width: var(--strip-width); background: var(--accent); }
+.sp-inset--right { padding: clamp(64px, 14%, 140px) clamp(40px, 16%, 220px) 0 0; }
+.sp-inset--right .sp-inset__card::before { right: auto; left: 100%; }
+.sp-inset--no-strip .sp-inset__card::before { display: none; }
+
+/* ---- Giant word: an oversized serif word cropped by its panel ---- */
+.sp-giant { position: relative; overflow: hidden; background: var(--ink); color: var(--lilac); min-width: 0; }
+.sp-giant__word { display: block; font-family: var(--font-display); font-weight: 360; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.78;
+  font-size: clamp(120px, 22vw, 360px); white-space: nowrap; transform: translateY(18%); padding-left: 0.02em; }
+.sp-giant__meta { position: absolute; font-family: var(--font-mono); font-size: 10px; line-height: 1.6; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--paper); opacity: 0.72; white-space: pre; pointer-events: none; }
+.sp-giant__meta--bullet::before { content: ""; display: inline-block; width: 5px; height: 5px; margin-right: 5px; background: currentColor; vertical-align: 1px; }
+
+/* ---- Plate: generative imagery container (Specimen.plate draws into it) ---- */
+.sp-plate { position: relative; display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 10; background: var(--ink); overflow: hidden; }
+.sp-plate--square { aspect-ratio: 1; }
+.sp-plate--tall { aspect-ratio: 3 / 4; }
+.sp-plate--band { aspect-ratio: 16 / 5; }
+
+@media (prefers-reduced-motion: reduce) { .sp-btn { transition: none; } }
